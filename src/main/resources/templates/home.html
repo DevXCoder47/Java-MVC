@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Book</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h2>Address Book List</h2>
+<form th:action="@{/filter}" method="post">
+    <label for="bookCred">Filter by Credentials:</label>
+    <input type="text" id="bookCred" name="bookCred"/>
+    <button type="submit">Filter</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Credentials</th>
+        <th>Email</th>
+        <th>Blog</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.credentials}"></td>
+        <td th:text="${book.email}"></td>
+        <td th:text="${book.blogReference}"></td>
+        <td>
+            <form th:action="@{/select}" method="post">
+                <input type="hidden" th:value="${book.credentials}" name="bookCred"/>
+                <button type="submit">View</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/edit}" method="post">
+                <input type="hidden" th:value="${book.credentials}" name="bookCred"/>
+                <button type="submit">Edit</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/delete}" method="post">
+                <input type="hidden" th:value="${book.credentials}" name="bookCred"/>
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<a th:href="@{/addEntry}">Add</a>
+</body>
+</html>

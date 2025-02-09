@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Address Book</title>
+</head>
+<body>
+<h1>Address Book Details</h1>
+<div>
+    <p><strong>Credentials:</strong> <span th:text="${book.credentials}"></span></p>
+    <p><strong>Phone Number:</strong> <span th:text="${book.phoneNumber}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${book.email}"></span></p>
+    <p><strong>Blog Reference:</strong> <span th:text="${book.blogReference}"></span></p>
+    <p><strong>Notes:</strong> <span th:text="${book.notes}"></span></p>
+  <a th:href="@{/home}">return</a>
+</div>
+</body>
+</html>

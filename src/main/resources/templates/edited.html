@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Edit Entry</title>
+</head>
+<body>
+<h2>Edit entry</h2>
+<form th:action="@{/editToList}" method="post">
+    <label for="cred">Credentials:</label>
+    <input type="text" id="cred" name="cred" th:value="${book.credentials}" required>
+    <br>
+
+    <label for="phone">Phone number:</label>
+    <input type="text" id="phone" name="phone" th:value="${book.phoneNumber}" required>
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" th:value="${book.email}" required>
+    <br>
+
+    <label for="blog">Blog reference:</label>
+    <input type="text" id="blog" name="blog" th:value="${book.blogReference}">
+    <br>
+
+    <label for="notes">Notes:</label>
+    <input type="text" id="notes" name="notes" th:value="${book.notes}">
+    <br>
+
+    <button type="submit">Edit</button>
+</form>
+</body>
+</html>

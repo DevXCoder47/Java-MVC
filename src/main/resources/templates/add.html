@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <title>Add Entry</title>
+</head>
+<body>
+<h2>Add entry</h2>
+<form th:action="@{/addToList}" method="post">
+  <label for="cred">Credentials:</label>
+  <input type="text" id="cred" name="cred" required>
+  <br>
+
+  <label for="phone">Phone number:</label>
+  <input type="text" id="phone" name="phone" required>
+  <br>
+
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email" required>
+  <br>
+
+  <label for="blog">Blog reference:</label>
+  <input type="text" id="blog" name="blog">
+  <br>
+
+  <label for="notes">Notes:</label>
+  <input type="text" id="notes" name="notes">
+  <br>
+
+  <button type="submit">Add</button>
+</form>
+</body>
+</html>
